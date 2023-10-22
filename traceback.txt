@@ -1,22 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 186, in script
-    c "fiu, por un pelo"
-Exception: Sayer 'c' is not defined.
+  File "game/script.rpy", line 13, in script
+    init python:
+  File "game/script.rpy", line 14, in <module>
+    renpy.voice.register_channel('bateria','voice')
+AttributeError: module 'renpy.exports' has no attribute 'voice'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 186, in script
-    c "fiu, por un pelo"
-  File "C:\renpy\renpy-8.1.3-sdk\renpy\ast.py", line 890, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "C:\renpy\renpy-8.1.3-sdk\renpy\ast.py", line 783, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'c' is not defined.
+  File "game/script.rpy", line 13, in script
+    init python:
+  File "C:\Users\USER\Downloads\renpy-8.1.3-sdk\renpy\ast.py", line 1138, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\USER\Downloads\renpy-8.1.3-sdk\renpy\python.py", line 1122, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 14, in <module>
+    renpy.voice.register_channel('bateria','voice')
+AttributeError: module 'renpy.exports' has no attribute 'voice'
 
 Windows-10-10.0.19041 AMD64
 Ren'Py 8.1.3.23091805
 I`m Bayron Mental 1.0
-Sun Oct 22 13:03:18 2023
+Sun Oct 22 17:30:55 2023

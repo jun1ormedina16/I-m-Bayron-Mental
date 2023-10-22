@@ -8,14 +8,25 @@ define a = Character("Compañeros", color="#37f12d")
 # Variables
 default puntos = 10
 
+# Canales de audio adicionales
+
+init python:
+    renpy.music.register_channel('bateria','music')
+    renpy.music.register_channel('comping','music')
+    renpy.music.register_channel('bongos','music')
+    renpy.music.register_channel('rainstick','music')
+    renpy.music.register_channel('flauta','music')
+    renpy.music.register_channel('synthDark','music')
+
 # Inicio del juego
 label start:
 
 #en la mañana
-    play music "audio/Despertador.wav"
+    play music "audio/Despertador.wav" fadein 1
+    
     image dormitorio = "cuarto.jpg"
     scene dormitorio
-    play music "audio/Despertador.wav"
+    play music "audio/Despertador.wav" fadein 4
     image alarma = "aaaa.png"
     show alarma at truecenter
     "OUAAH! Creo que es hora de despertarse"
@@ -23,7 +34,18 @@ label start:
     image reloj = "reloj.png"
     show reloj at truecenter
     sis "Ya son las 7 debería levantarme"
-    stop music
+    
+    #Inician los 6 canales 
+
+    play bateria "audio/1 Batería.wav" fadein 1
+    play comping "audio/2 Comping.wav" fadein 1
+    play bongos "audio/3 bongos.wav" fadein 1
+    play rainstick "audio/4 rainstick.wav" fadein 1
+    play flauta "audio/5 Flauta.wav" fadein 1
+    play flauta "6 synth darks.wav" fadein 1
+
+
+    stop music fadeout 3
     play music "audio/Apartamento día_Ambiente.wav"
     sis "Será mejor que revise mi celular"
     hide reloj
